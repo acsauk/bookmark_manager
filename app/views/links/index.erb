@@ -1,4 +1,3 @@
-<!DOCTYPE/>
 
 <h1> Links </h1>
 <ul id='links'>
@@ -6,7 +5,12 @@
     <li>
       Title: <%= link.title %>
       URL:   <%= link.url %>
-      Tag:   <%= link.tags.first.name %>
+      <% @tags_names = []
+      link.tags.each do |tag|
+        @tags_names << tag.name
+      end %>
+
+      Tag:   <%= @tags_names.join(', ') %>
     </li>
   <% end %>
 </ul>
