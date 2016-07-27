@@ -1,4 +1,4 @@
-require './spec/spec_helper'
+# require './spec/spec_helper'
 require './app/app.rb'
 require 'data_mapper'
 
