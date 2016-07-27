@@ -1,7 +1,6 @@
 
-
-feature "creating links" do
-  scenario "can add a link" do
+feature "adding tags" do
+  scenario "can add a tag" do
     visit "/links/new"
     fill_in("title", with: "Google")
     fill_in("url", with: "http://www.google.com")
@@ -11,7 +10,7 @@ feature "creating links" do
     expect(current_path).to eq '/links'
 
     within 'ul#links' do
-      expect(page).to have_content("Google")
+      expect(page).to have_content("Search")
     end
   end
 
