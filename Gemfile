@@ -9,6 +9,7 @@ gem 'rspec'
 gem 'sinatra'
 gem 'capybara'
 gem 'rspec-sinatra'
+gem 'rake'
 
 group :test do
   gem 'database_cleaner'
