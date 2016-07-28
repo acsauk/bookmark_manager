@@ -25,5 +25,8 @@ feature "Sign up to the webpage" do
     fill_in("password", with: "abcd1234")
     fill_in("confirmation", with: "1234abcd")
     expect{click_button("Create")}.to change{User.count}.by(0)
+    expect(current_path).to eq '/sign-up'
+    expect(page).to have_content("Password and confirmation password do not match")
+    expect(page).to have_field('email', with: 'example@gmail.com')
   end
 end

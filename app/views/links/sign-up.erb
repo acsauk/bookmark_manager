@@ -2,7 +2,7 @@
 <form action="/sign-up" method="post">
   <label for="email">
     Email:
-    <input type="text" name="email" >
+    <input type="text" name="email" value="<%= session[:email] %>">
   </label>
   <label for="password">
     Password:
