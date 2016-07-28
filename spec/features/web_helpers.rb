@@ -1,7 +1,10 @@
-def valid_sign_in
+def sign_in(email: "example@gmail.com",
+            password: "abcd1234",
+            confirmation: "abcd1234")
+
   visit "/sign-up"
-  fill_in("email", with: "example@gmail.com")
-  fill_in("password", with: "abcd1234")
-  fill_in("confirmation", with: "abcd1234")
+  fill_in("email", with: email)
+  fill_in("password", with: password)
+  fill_in("confirmation", with: confirmation)
   click_button("Create")
 end
