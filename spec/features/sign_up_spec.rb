@@ -18,7 +18,7 @@ feature "Sign up to the webpage" do
   scenario "Password must match the confirmation field" do
     expect{ sign_in(confirmation: "1234abcd") }.to change{User.count}.by(0)
     expect(current_path).to eq '/sign-up'
-    expect(page).to have_content("Password and confirmation password do not match")
+    expect(page).to have_content("Password does not match the confirmation")
     expect(page).to have_field('email', with: 'example@gmail.com')
   end
 
@@ -28,6 +28,11 @@ feature "Sign up to the webpage" do
 
   scenario "User cannot sign-up with an invalid email address" do
     expect { sign_in(email: "invalid@email") }.to change{ User.count }.by(0)
+  end
+
+  scenario "User cannot sign-up with an email address that is already registered" do
+    sign_in
+    expect { sign_in }.to change{ User.count }.by(0)
   end
 
 end

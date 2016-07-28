@@ -54,10 +54,18 @@ class BookmarkManager < Sinatra::Base
       if user.valid?
         redirect '/links'
       else
-        flash[:signup_error] = "Password and confirmation password do not match"
+        flash.now[:errors] = user.errors.full_messages
         session[:email] = user.email
-        redirect '/sign-up'
+        erb :'links/sign-up'
       end
+      # elsif params[:password] == params[:confirmation]
+      #   flash[:error] = "Password and confirmation password do not match"
+      #   session[:email] = user.email
+      #   redirect '/sign-up'
+      # elsif User.all(email: user.email).empty?
+      #   flash[:error] = "Email already exists - please use unique email address"
+      #   redirect '/sign-up'
+      # end
   end
 
   # start the server if ruby file executed directly

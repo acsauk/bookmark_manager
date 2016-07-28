@@ -9,10 +9,14 @@
       Welcome, <%= current_user.email %>
     <% end %>
 
-    <% if flash[:signup_error] %>
-      <%= flash[:signup_error] %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please see the below errors:
+      <ul id='errors'>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
     <% end %>
-
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
   </body>
 </html>
