@@ -44,9 +44,9 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/sign-up' do
-    user = User.create(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/links'
+      user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:confirmation])
+      session[:user_id] = user.id
+      redirect '/links'
   end
 
   # start the server if ruby file executed directly
