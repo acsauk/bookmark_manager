@@ -11,7 +11,7 @@ feature "Sign up to the webpage" do
     fill_in("email", with: "example@gmail.com")
     fill_in("password", with: "abcd1234")
     click_button("Create")
-    expect(page).to have_content("Welcome Roi")
+    expect(page).to have_content("Welcome, example@gmail.com")
   end
 
   scenario "The email address for user in the DB is correct" do
